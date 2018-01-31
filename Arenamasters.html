@@ -1,0 +1,188 @@
+<html>
+        <head>
+            <title>Arena Masters</title>
+            <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.js'></script> 
+
+            <script type="text/javascript">
+            
+                $(document).ready(function(){
+                //     $("#beach").hover(
+                //         function(){
+                //             $("#container").css("background-image","url(" + 'beach.jpg' + ")");
+                //         }, 
+                //         function(){
+                //             $('#container').css('background-image', 'none');
+                //         })
+                //     $("#planet").hover(
+                //         function(){
+                //             $("#container").css("background-image","url(" + 'earth.jpg' + ")");
+                //         }, 
+                //         function(){
+                //             $('#container').css('background-image', 'none');
+                //         })
+                //     $("#dojo").hover(
+                //         function(){
+                //             $("#container").css("background-image","url(" + 'dojo.jpg' + ")");
+                //         }, 
+                //         function(){
+                //             $('#container').css('background-image', 'none');
+                //         })
+                //     $("#forest").hover(
+                //         function(){
+                //             $("#container").css("background-image","url(" + 'forest.jpg' + ")");
+                //         }, 
+                //         function(){
+                //             $('#container').css('background-image', 'none');
+                //         })
+                //     $("#matrix").hover(
+                //         function(){
+                //             $("#container").css("background-image","url(" + 'matrix.jpg' + ")");
+                //         }, 
+                //         function(){
+                //             $('#container').css('background-image', 'none');
+                //         })
+                //     $("#snow").hover(
+                //         function(){
+                //             $("#container").css("background-image","url(" + 'snow.jpg' + ")");
+                //         }, 
+                //         function(){
+                //             $('#container').css('background-image', 'none');
+                //         })
+                //     $("#beach").click(function(){
+                //         $(this).siblings().hide();
+                //         $(this).hide();
+                //         $("#container").css("background-image","url(" + 'beach.jpg' + ")");
+                //     })
+                // })
+                
+                $('#players').hide();
+                $('#player1').hide();
+                $('#player2').hide();
+                var check = false;
+                $(document).on('mouseenter', 'button', function(){
+
+                    $('#container').css('background-image', 'url(' + $(this).attr('back') + ')');
+                })
+                $(document).on('mouseleave', 'button', function(){
+                    if (!check){
+                        $('#container').css('background-image', 'none')
+                    }
+                })
+
+                $(document).on('click', 'button', function(){
+                    check=true;
+                    $('#menu').children().hide();
+                    $('#players').show();
+                    $('#player1').show();
+                    $('#player2').show();
+                })
+                $('#player1').change(function(){
+                   // console.log($('#player1 option:selected').attr('charimg'));
+                   $('#leftchar img').attr('src', $('#player1 option:selected').attr('charimg'));
+                })
+                $('#player2').change(function(){
+                   // console.log($('#player1 option:selected').attr('charimg'));
+                   $('#rightchar img').attr('src', $('#player2 option:selected').attr('charimg'));
+                })
+            })
+            </script>
+
+            <style>
+            
+            #container{
+                margin: 0 auto;
+                background-color: black;
+                width: 1600px;
+                height: 900px;
+                border-style: solid;
+                border-color: grey;
+                border-width: 10px;
+                background-size: 100% 100%;
+            }
+
+            #menu {
+                background-color: lightgrey;
+                border-style: solid;
+                border-width: 7px;
+                border-color: grey;
+                height:250px;
+                width: 400px;
+                border-radius: 6px;
+                margin: 0 auto;
+                margin-top: 150px;
+                text-align: center;
+            }
+
+            h1{
+                color: gold;
+                text-shadow: 2px 2px white;
+                font-size: 35pt;
+                margin-bottom: 30px;
+            }
+
+            button{
+                display: inline-block;
+                width: 100px;
+                height: 50px;
+                background-color: white;
+                border-radius: 10px;
+                border: none;
+                margin-bottom: 3px;
+            }
+            #leftchar{
+                display: inline-block;
+                vertical-align: bottom;
+                height: 400px;
+                width: 200px;
+
+                margin-left: 200px;
+            }
+            #rightchar{
+                display: inline-block;
+                vertical-align: bottom;
+                height: 400px;
+                width: 200px;
+
+                margin-left: 800px;
+            }
+            </style>
+        </head>
+        <body>
+            <div id="container">
+
+                <div id="menu">
+                    <h1 id="arena">Select Arena</h1>
+
+                    <button id="beach" type="button" back="beach.jpg">Beach</button>
+                    <button id="planet" type="button" back="earth.jpg">Planet</button>
+                    <button id="dojo" type="button" back="dojo.jpg">Dojo</button>
+                    <button id="forest" type="button" back="forest.jpg">Forest</button>
+                    <button id="matrix" type="button" back="matrix.jpg">Matrix</button>
+                    <button id="snow" type="button" back="snow.jpg">Snow</button>
+
+                    <h1 id="players">Select Players</h1>
+                    <select id="player1">
+                        <option value="select">Select</option>
+                        <option value="ralphy" charimg="raphael.png">Raphael</option>
+                        <option value="leo" charimg="leo.png">Leonardo</option>
+                        <option value="donny" charimg="donny.png">Donatello</option>
+                        <option value="mikey" charimg="mikey.png">Michelangelo</option>
+                    </select>
+
+                    <select id="player2">
+                        <option value="select">Select</option>
+                        <option value="ralphy" charimg="raphael.png">Raphael</option>
+                        <option value="leo" charimg="leo.png">Leonardo</option>
+                        <option value="donny" charimg="donny.png">Donatello</option>
+                        <option value="mikey" charimg="mikey.png">Michelangelo</option>
+                    </select>
+                </div>
+                <div id='leftchar'>
+                    <img src="">
+                </div>
+                <div id='rightchar'>
+                    <img>
+                </div>
+            </div>
+        </body>
+</html>
